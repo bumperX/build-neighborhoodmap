@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  
+  <head>
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  </head>
+  
+  <body>
+    <div class="dropdown">
+      <button class='dropbtn'>Menu</button>
+      <div class='dropdown-content'>
+        <div id='search'>
+          <p>Search: <input data-bind="value: search,valueUpdate: 'afterkeydown'"></p>
+        </div>
+        <div data-bind="foreach: searchList" class="locations">
+          <div data-bind="text: title, click: $root.triggerMarker" class="location"></div>
+        </div>
+      </div>
+    </div>
+    <div id="map"></div>
+    <script type="text/html" id="info-template">
+      <div data-bind="with: currentLocation"></div>
+      <div id='pano'></div>
+    </script>
+    <script src="js/knockout-3.4.2.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/locations.js"></script>
+    <script src="js/mapstyles.js"></script>
+    <script
+        src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous">
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?libraries=places,geometry,drawing&key=AIzaSyDn2hH0rhRKwoo2SMnWnp5egjVcqrNMeSg&v=3&callback=appInit" onerror="mapError()"></script>
+  </body>
+
+</html>
